@@ -9,26 +9,63 @@
   <script src="js/bundle.js"></script>
 </head>
 <body>
-  <h2>Prioritised To Do List</h2>
-  <br><br>
+  <h2><u>Prioritised To Do List</u></h2>
   <div id="app">
     <p>Add new item:</p>
-    <input v-model="newDetail" type="text">
-    <input v-on:Click="addToList" type="submit" name="Add To List">
+    <div class="topper">
+      <div class="new">
+        <label>Priority</label>
+        <select v-model="newPriority" name="priority">
+          <option value="High">High</option>
+          <option value="High">Medium</option>
+          <option value="High">Low</option>
+        </select>
+      </div>
+      <div class="new">
+        <label>Due</label>
+        <input v-model="newDue" type="text">
+      </div>
+      <div class="new">
+        <label>Task</label>
+        <input v-model="newDetail" type="text">
+      </div>
+      <div class="new">
+        <label>Assigned To</label>
+        <input v-model="newAssigned" type="text">
+      </div>
+      <input v-on:Click="addToList" class="" type="submit" name="Add To List">
+    </div>
     <br>
     <br>
-    <div class="">
-      <span>ITEM</span>
+    <div class="tabled">
+      <table class="main-table">
+        <tr>
+          <th>PRIORITY</th>
+          <th>DUE DATE</th>
+          <th>TASK</th>
+          <th>ASSIGNED TO</th>
+          <th>STATUS</th>
+        </tr>
+        <tr v-for="(item, index) in list">
+          <td>{{ item.priority }}</td>
+          <td><p>{{ item.due }}</p></td>
+          <td id="detail">{{ item.detail }}</td>
+          <td><p>{{ item.assigned }}</p></td>
+          <td v-if="item.done">tick</td>
+          <td><button v-on:Click="itemDone(index)" type="button" name="button">Completed</button></td>
+        </tr>
+      </table>
+      <!-- <span>ITEM</span>
       <span>TASK</span>
       <span>STATUS</span>
       <ol>
-        <li v-for="(item, index) in list">
-          <span>{{ item.detail }}</span>
-          <span>{{ item.done }}</span>
-          <span><button v-on:Click="itemDone(index)" type="button" name="button">Completed</button></span>
-        </li>
-      </ol>
-    </div>
-  </div>
+      <li v-for="(item, index) in list">
+      <span>{{ item.detail }}</span>
+      <span>{{ item.done }}</span>
+      <span><button v-on:Click="itemDone(index)" type="button" name="button">Completed</button></span>
+    </li>
+  </ol> -->
+</div>
+</div>
 </body>
 </html>

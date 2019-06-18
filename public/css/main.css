@@ -1,5 +1,48 @@
 * {
   background-color: #F0FFFF;
   font-family: sans-serif;
-  margin: 5px;
+  margin: 6px;
+}
+
+h2 u{
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  font-size: 6vw;
+  color: orange;
+}
+
+.tabled table {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-table table, th, td {
+  border: 1px solid black;
+}
+
+.main-table {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#id {
+
+}
+
+.new {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.topper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin: 0 20%;
+  border: 2px solid black;
 }
